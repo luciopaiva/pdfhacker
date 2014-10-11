@@ -1,0 +1,22 @@
+{
+  "name": "pdf-inspector",
+  "version": "0.0.1",
+  "description": "",
+  "main": "inspector.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luciopaiva/pdf-inspector.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luciopaiva/pdf-inspector/issues"
+  },
+  "homepage": "https://github.com/luciopaiva/pdf-inspector",
+  "devDependencies": {
+    "mocha": "^1.21.5"
+  }
+}
