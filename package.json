@@ -4,6 +4,7 @@
   "description": "",
   "main": "inspector.js",
   "scripts": {
+    "coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --",
     "test": "mocha"
   },
   "repository": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/luciopaiva/pdf-inspector",
   "devDependencies": {
+    "istanbul": "^0.3.2",
     "mocha": "^1.21.5"
   }
 }
