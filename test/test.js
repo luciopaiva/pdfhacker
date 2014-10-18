@@ -1,10 +1,10 @@
 "use strict";
 
 var
-    inspector = require('../inspector'),
+    pdfhacker = require('../pdfhacker'),
     assert = require('assert');
 
-describe('inspector', function () {
+describe('pdfhacker', function () {
     var
         invalidPdfFilename = 'test/assets/test.odt',
         validPdfFilename = 'test/assets/test.pdf',
@@ -15,7 +15,7 @@ describe('inspector', function () {
         assert.throws(loadPdf, 'File was mistakenly recognized as a valid PDF');
 
         function loadPdf() {
-            return inspector(invalidPdfFilename);
+            return pdfhacker(invalidPdfFilename);
         }
     });
 
@@ -24,7 +24,7 @@ describe('inspector', function () {
         assert.doesNotThrow(loadPdf, "File wasn't understood as a valid PDF");
 
         function loadPdf() {
-            pdf = inspector(validPdfFilename);
+            pdf = pdfhacker(validPdfFilename);
         }
     });
 
@@ -47,7 +47,7 @@ describe('inspector', function () {
     it('should read a valid xref start position', function () {
 
         assert.strictEqual(typeof pdf.startxref, 'number', 'startxref is not valid');
-        assert.strictEqual(pdf.startxref, 14001, 'startxref does not match');
+        assert.strictEqual(pdf.startxref, 13555, 'startxref does not match');
     });
 
     it('should correctly parse the xref table', function () {

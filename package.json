@@ -1,8 +1,8 @@
 {
-  "name": "pdf-inspector",
+  "name": "pdfhacker",
   "version": "0.0.1",
   "description": "",
-  "main": "inspector.js",
+  "main": "pdfhacker.js",
   "scripts": {
     "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --"
   },
@@ -13,9 +13,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/luciopaiva/pdf-inspector/issues"
+    "url": "https://github.com/luciopaiva/pdfhacker/issues"
   },
-  "homepage": "https://github.com/luciopaiva/pdf-inspector",
+  "homepage": "https://github.com/luciopaiva/pdfhacker",
   "devDependencies": {
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.2",
