@@ -1,2 +1,2 @@
 
-module.exports = require('./pdf');
+module.exports = require('./lib/pdf');
