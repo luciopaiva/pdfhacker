@@ -10,10 +10,10 @@ A low-level PDF file editor.
 
 Basic PDF info:
 
-    > console.info(pdfhacker('test.pdf').filename)
-    test.pdf
-    
-    > console.dir(pdfhacker('test.pdf').version)
+    var
+       pdf = pdfhacker('test.pdf');
+       
+    > console.dir(pdf.version);
     {
       major: 1,
       minor: 5
@@ -21,15 +21,29 @@ Basic PDF info:
 
 Simple text replacement:
 
-    pdfhacker('test.pdf').replace('foo', 'bar').saveTo('out.pdf');
+    pdf.replace('foo', 'bar').saveTo('out.pdf');
 
 Will replace all occurrences of ``foo`` with ``bar`, finally saving to file ``out.pdf``.
 
 Chaining:
 
-    pdfhacker('test.pdf')
+    pdf
       .replace('foo', 'bar')
-      .replace('123', '456')
-      .saveTo('out.pdf')
+      .replace(/\d{3}/, '456')
+      .saveTo('out.pdf');
 
 Will replace all occurrences of ``foo`` with ``bar`` and will also replace all ``123`` with ``456``, finally saving to file ``out.pdf``.
+
+Display object tree:
+
+    > pdf.dumpTree();
+    Root
+    |- Catalog
+       |- Page 1
+       |- Page 2
+       ...
+
+Change specific objects:
+
+    pdf('/Root/Catalog/Page 1/Text')[0].val('first text object will be affected');
+    pdf('/Root/Catalog/Page 1/Text').val('all page 1 text objects will be affected');
