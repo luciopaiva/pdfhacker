@@ -4,6 +4,8 @@ PDF Hacker
 [![Build Status](https://img.shields.io/travis/luciopaiva/pdfhacker/master.svg?style=flat)](https://travis-ci.org/luciopaiva/pdfhacker)
 [![Coverage Status](https://img.shields.io/coveralls/luciopaiva/pdfhacker/master.svg?style=flat)](https://coveralls.io/r/luciopaiva/pdfhacker)
 
+**Warning: this is an experimental project and a WIP. Don't try to use it yet, it won't work!**
+
 A low-level PDF file editor.
 
 ## Features
@@ -23,7 +25,7 @@ Simple text replacement:
 
     pdf.replace('foo', 'bar').saveTo('out.pdf');
 
-Will replace all occurrences of ``foo`` with ``bar`, finally saving to file ``out.pdf``.
+Will replace all occurrences of ``foo`` with ``bar``, finally saving to file ``out.pdf``.
 
 Chaining:
 
