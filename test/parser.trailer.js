@@ -2,7 +2,7 @@
 
 var
     assert = require('assert'),
-    IndirectObject = require('../lib/objects/indirect'),
+    IndirectObject = require('../lib/objects/indobjref'),
     Parser = require('../lib/parser');
 
 describe('PDF parser', function () {
@@ -28,7 +28,7 @@ describe('PDF parser', function () {
                 var
                     result = parse('trailer\n<</Size 19/Root 17 0 R>>').getTrailer(0);
 
-                assert(result.Root instanceof IndirectObject, 'Root node should be of type IndirectObject, but was "' + typeof result.Root + '"');
+                assert(result.Root instanceof IndirectObject, 'Root node should be of type IndirectObjectReference, but was "' + typeof result.Root + '"');
             });
         });
     });
