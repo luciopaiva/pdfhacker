@@ -2,7 +2,8 @@
 
 var
     assert = require('assert'),
-    Catalog = require('../lib/objects/catalog'),
+    DictionaryObject = require('../lib/objects/dictionary'),
+    CatalogObject = require('../lib/objects/catalog'),
     docbuilder = require('../lib/docbuilder');
 
 describe('Document structure', function () {
@@ -30,10 +31,9 @@ describe('Document structure', function () {
             });
         });
 
-        xit('should find the document\'s catalog', function () {
+        it('should find the document\'s catalog', function () {
 
-            assert.notStrictEqual(doc.catalog, null, 'Catalog object was not found');
-            assert(doc.catalog instanceof Catalog, 'Catalog object type was expected, but found "' + doc.catalog.prototype.toString() + '")');
+            assert(doc.catalog instanceof DictionaryObject, 'Catalog object type was expected, but found "' + Object.prototype.toString.call(doc.catalog) + '")');
         });
     });
 });
