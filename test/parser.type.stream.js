@@ -36,6 +36,20 @@ describe('PDF parser', function () {
                     parse('<</Length 10>>\nstream\n1234567890').getStream();
                 }, 'Should not accept a malformed stream value');
             });
+
+            it('should parse a stream with an indirect object Length field', function () {
+                var
+                    stream = '<</Length 0 0 R>>\nstream\n1234567890\nendstream\n',
+                    indLength = '0 0 obj\n10\nendobj\n',
+                    xref = [{
+                        position: stream.length
+                    }],
+                    result;
+
+                result = parse(stream + indLength, xref).getStream(xref);
+
+                assert.strictEqual(result.dict.Length, 10, 'Indirect Length field should have value 10, but found ' + result.dict.Length);
+            });
         });
     });
 
