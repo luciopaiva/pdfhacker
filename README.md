@@ -6,7 +6,7 @@ PDF Hacker
 
 **Warning: this is an experimental project and a WIP. Don't try to use it yet, it won't work!**
 
-A low-level PDF file editor.
+A low-level PDF file editor API.
 
 ## Features
 
