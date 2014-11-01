@@ -27,7 +27,7 @@ describe('Stream parser', function () {
             var
                 doc = docbuilder(filePrefix + testFile);
 
-            assert.strictEqual(doc.pages[0].Contents.length, 22, 'Should have found 22 instructions');
+            assert.strictEqual(doc.pages[0].contents.length, 22, 'Should have found 22 instructions');
         });
 
     });
