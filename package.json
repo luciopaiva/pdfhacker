@@ -26,6 +26,7 @@
     "mocha": "^1.21.5"
   },
   "dependencies": {
-    "pako": "^0.2.5"
+    "pako": "^0.2.5",
+    "willie": "0.0.3"
   }
 }

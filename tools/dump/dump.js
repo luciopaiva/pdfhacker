@@ -1,7 +1,8 @@
 "use strict";
 
 var
-    builder = require('../lib/docbuilder');
+    willie = require('willie'),
+    builder = require('../../lib/docbuilder');
 
 var
     doc;
@@ -24,7 +25,9 @@ function printObjects() {
 function dump(filename) {
 
     try {
-        doc = builder(filename);
+        doc = builder(filename, {
+            logToFile: 'dump.log'
+        });
 
         printObjects();
 
@@ -45,6 +48,8 @@ function main() {
         console.error('\tnode dump <pdf_file>');
 
     } else {
+
+        willie.logToFileWithTimestamp('dump');
 
         dump(process.argv[2]);
     }
