@@ -4,7 +4,7 @@
   "description": "",
   "main": "pdfhacker.js",
   "scripts": {
-    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --"
+    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --timeout 5000"
   },
   "repository": {
     "type": "git",
