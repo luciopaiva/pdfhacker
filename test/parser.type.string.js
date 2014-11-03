@@ -16,10 +16,10 @@ describe('PDF parser', function () {
                 }, 'Should not accept a malformed literal string');
             });
 
-            it('should accept an empty literal string value', function () {
-                var result = parse('()').getString();
-                assert.strictEqual(typeof result, 'string', 'Invalid literal string value');
-                assert.strictEqual(result, '', 'String "' + result + '" should be empty');
+            it('should not accept an empty literal string value', function () {
+                assert.throws(function () {
+                    parse('()').getString();
+                }, 'Should not accept an empty literal string');
             });
 
             it('should parse a literal string value', function () {
