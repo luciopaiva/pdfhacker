@@ -23,6 +23,23 @@ describe('Stream parser', function () {
             assert.strictEqual(program.length, 22, 'Should have found 22 instructions');
         });
 
+        it('should accept valid operands', function () {
+            var
+                content = 'true null /name [1 2] (test) 42 <</Length 0>> BT',
+                program = streamParser(content);
+
+            assert.strictEqual(program[0].operands.length, 7, 'Operand count does not match (' + program[0].operands.length + ', should be 7)');
+        });
+
+        it('should reject an unknown operator', function () {
+            var
+                content = 'foo';
+
+            assert.throws(function () {
+                streamParser(content);
+            }, 'should reject an unknown operator');
+        });
+
         it('should be able to parse a simple page content in a PDF file', function () {
             var
                 doc = docbuilder(filePrefix + testFile);

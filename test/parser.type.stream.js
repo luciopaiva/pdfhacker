@@ -50,6 +50,12 @@ describe('PDF parser', function () {
 
                 assert.strictEqual(result.dict.Length, 10, 'Indirect Length field should have value 10, but found ' + result.dict.Length);
             });
+
+            it('should throw if filter is not known', function () {
+                assert.throws(function () {
+                    parse('<</Length 10 /Filter /FooFilter>>\nstream\n1234567890').getStream();
+                }, 'Should not accept an unkown filter');
+            });
         });
     });
 
