@@ -1,13 +1,11 @@
-"use strict";
 
-var
+const
     assert = require('assert'),
     DictionaryObject = require('../lib/objects/dictionary'),
-    CatalogObject = require('../lib/objects/catalog'),
     docbuilder = require('../lib/docbuilder');
 
 describe('Document structure', function () {
-    var
+    const
         filePrefix = 'test/assets/',
         testFiles = {
             'test.pdf': {
@@ -25,9 +23,8 @@ describe('Document structure', function () {
         };
 
     Object.keys(testFiles).forEach(function (filename) {
-        var
-            cur = testFiles[filename],
-            doc;
+        const cur = testFiles[filename];
+        let doc;
 
         describe('Basic structure (' + filename + ')', function () {
 
@@ -36,7 +33,7 @@ describe('Document structure', function () {
             });
 
             it('should read a valid cross reference table', function () {
-                var
+                const
                     expectedLength = cur.xrefLength,
                     keys = Object.keys(doc.xref);
 
