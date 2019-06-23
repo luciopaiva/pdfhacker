@@ -1,29 +1,23 @@
-"use strict";
 
-var
+const
     willie = require('willie'),
     builder = require('../../lib/docbuilder');
 
-var
-    doc;
-
+let doc;
 
 function printObjects() {
-    var
-        objs, keys;
+    let objs, keys;
 
     objs = doc.getAllObjects();
     keys = Object.keys(objs);
 
-    keys.forEach(function (key) {
-
+    keys.forEach(key => {
         console.info('\n# %s ###########################################################################', key);
         console.dir(objs[key]);
     });
 }
 
 function dump(filename) {
-
     try {
         doc = builder(filename, {
             logToFile: 'dump.log'
@@ -41,16 +35,11 @@ function dump(filename) {
 }
 
 function main() {
-
     if (process.argv.length !== 3) {
-
         console.error('How to use:');
         console.error('\tnode dump <pdf_file>');
-
     } else {
-
         willie.logToFileWithTimestamp('dump');
-
         dump(process.argv[2]);
     }
 }

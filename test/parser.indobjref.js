@@ -20,7 +20,7 @@ describe('PDF parser', function () {
     });
 
     function parse(script) {
-        return new Parser(new Buffer(script));
+        return new Parser(Buffer.from(script, "utf-8"));
     }
 
 });

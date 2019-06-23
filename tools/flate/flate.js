@@ -1,6 +1,5 @@
-"use strict";
 
-var
+const
     util = require('util'),
     fs = require('fs'),
     zlib = require('zlib'),
@@ -8,7 +7,7 @@ var
     jsdiff = require('diff'),
     chalk = require('chalk');
 
-var
+const
     testFile = '../../test/assets/collier.pdf',
     testPosition = 0x4c4b,
     testLength = 2933;
@@ -24,10 +23,9 @@ function zlibInflate(buf, cb) {
 }
 
 function getTestData() {
-    var
-        fd, buf;
+    let fd, buf;
 
-    buf = new Buffer(testLength);
+    buf = Buffer.alloc(testLength);
 
     try {
         fd = fs.openSync(testFile, 'r');
@@ -53,12 +51,12 @@ function getTestData() {
 }
 
 function compareInflates(pakoData, zlibData) {
-    var
+    const
         parts = [],
         diff = jsdiff.diffChars(zlibData, pakoData);
 
-    diff.forEach(function (part) {
-        var
+    diff.forEach(part => {
+        const
             color = part.added ? chalk.green : part.removed ? chalk.red : chalk.grey;
 
         parts.push({
@@ -72,25 +70,19 @@ function compareInflates(pakoData, zlibData) {
 
     console.info();
     console.info(chalk.cyan('Diff result "zlib -> pako": %d parts'), parts.length);
-    parts.forEach(function (part, index) {
-        var
-            df = part.color(util.format('%s %d chars', part.change, part.length));
-
+    parts.forEach((part, index) => {
+        const df = part.color(util.format('%s %d chars', part.change, part.length));
         console.info(chalk.cyan('\tPart %d: %s'), index+1, df);
     });
 }
 
 function runInflates(data) {
-    var
-        pakoData = pakoInflate(data);
-
+    const pakoData = pakoInflate(data);
     zlibInflate(data, compareInflates.bind(null, pakoData));
 }
 
 function main() {
-    var
-        data = getTestData();
-
+    const data = getTestData();
     runInflates(data);
 }
 
