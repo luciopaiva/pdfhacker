@@ -1,6 +1,5 @@
-"use strict";
 
-var
+const
     assert = require('assert'),
     Parser = require('../lib/parser');
 
@@ -30,8 +29,7 @@ describe('PDF parser', function () {
         });
 
         it('should skip newlines when asked to', function () {
-            var
-                parser = parse('\n');
+            const parser = parse('\n');
 
             parser.skipNewLine();
 
@@ -39,8 +37,7 @@ describe('PDF parser', function () {
         });
 
         it('should be able to move to a specific file position', function () {
-            var
-                parser = parse('\n\n\n\n\n\n');
+            const parser = parse('\n\n\n\n\n\n');
 
             parser.moveTo(5);
 
@@ -59,5 +56,4 @@ describe('PDF parser', function () {
     function parse(script) {
         return new Parser(Buffer.from(script, "utf-8"));
     }
-
 });

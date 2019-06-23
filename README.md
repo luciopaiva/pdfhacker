@@ -12,8 +12,7 @@ A low-level PDF file editor API.
 
 Basic PDF info:
 
-    var
-       pdf = pdfhacker('test.pdf');
+    const pdf = pdfhacker('test.pdf');
        
     > console.dir(pdf.version);
     {

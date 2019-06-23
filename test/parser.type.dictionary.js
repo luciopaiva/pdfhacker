@@ -1,6 +1,5 @@
-"use strict";
 
-var
+const
     assert = require('assert'),
     Parser = require('../lib/parser');
 
@@ -11,7 +10,7 @@ describe('PDF parser', function () {
         describe('Dictionary', function () {
 
             it('should parse a dictionary value', function () {
-                var result = parse('<</This/Test/Should/Pass>>').getDictionary();
+                const result = parse('<</This/Test/Should/Pass>>').getDictionary();
                 assert.strictEqual(result.This, 'Test', 'dict.This should be "Test"');
                 assert.strictEqual(result.Should, 'Pass', 'dict.Should should be "Pass"');
             });
@@ -23,13 +22,14 @@ describe('PDF parser', function () {
             });
 
             it('should parse a dictionary value with an embedded dictionary', function () {
-                var result = parse('<< /inner <</value 42>> >>').getDictionary();
+                const result = parse('<< /inner <</value 42>> >>').getDictionary();
                 assert.strictEqual(result.inner.value, 42, 'dict.inner.value should equal 42');
             });
 
             it('should parse a dictionary value referencing all types of objects', function () {
-                var
-                    result = parse('<</bool true/number 1/string(my test)/name/aName/array[1 2 3]/dict<</value 42>>/NULL null/indobjref 4 0 R/hexstr <>>>').getDictionary();
+                const
+                    result = parse("<</bool true/number 1/string(my test)/name/aName/array[1 2 3]/" +
+                        "dict<</value 42>>/NULL null/indobjref 4 0 R/hexstr <>>>").getDictionary();
                 assert.strictEqual(result.bool, true, 'dict.bool should be true');
                 assert.strictEqual(result.number, 1, 'dict.number should be 1');
                 assert.strictEqual(result.string, 'my test', 'dict.string should be "my test"');

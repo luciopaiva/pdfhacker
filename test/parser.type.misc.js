@@ -1,6 +1,5 @@
-"use strict";
 
-var
+const
     assert = require('assert'),
     Parser = require('../lib/parser');
 

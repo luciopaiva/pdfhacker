@@ -1,14 +1,13 @@
-"use strict";
 
-var
+const
     assert = require('assert'),
     pdfhacker = require('../pdfhacker');
 
 describe('pdfhacker', function () {
-    var
+    const
         invalidPdfFilename = 'test/assets/test.odt',
-        validPdfFilename = 'test/assets/test.pdf',
-        pdf;
+        validPdfFilename = 'test/assets/test.pdf';
+    let pdf;
 
     describe('Basic PDF validation', function () {
 

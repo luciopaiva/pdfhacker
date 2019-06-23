@@ -1,6 +1,5 @@
-"use strict";
 
-var
+const
     assert = require('assert'),
     IndirectObject = require('../lib/objects/indobj'),
     Parser = require('../lib/parser');
@@ -12,7 +11,7 @@ describe('PDF parser', function () {
         describe('Indirect Object', function () {
 
             it('should parse an indirect object', function () {
-                var result = parse('1 0 obj\n<</Length 3>>\nstream\n123\nendstream\nendobj').readIndirectObject(0);
+                const result = parse('1 0 obj\n<</Length 3>>\nstream\n123\nendstream\nendobj').readIndirectObject(0);
                 assert(result instanceof IndirectObject, 'Invalid indirect object');
             });
 

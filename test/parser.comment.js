@@ -1,6 +1,5 @@
-"use strict";
 
-var
+const
     assert = require('assert'),
     Parser = require('../lib/parser');
 
@@ -9,7 +8,7 @@ describe('PDF parser', function () {
     describe('Comments', function () {
 
         it('should parse a comment line', function () {
-            var
+            const
                 str = 'this is a comment',
                 result = parse('%' + str).getComment();
 
@@ -27,5 +26,4 @@ describe('PDF parser', function () {
     function parse(script) {
         return new Parser(Buffer.from(script, "utf-8"));
     }
-
 });

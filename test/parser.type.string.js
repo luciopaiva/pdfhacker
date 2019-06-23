@@ -1,6 +1,5 @@
-"use strict";
 
-var
+const
     assert = require('assert'),
     Parser = require('../lib/parser');
 
@@ -23,91 +22,79 @@ describe('PDF parser', function () {
             });
 
             it('should parse a literal string value', function () {
-                var
-                    str = 'this test should pass';
-
-                var result = parse('(' + str + ')').getString();
+                const str = 'this test should pass';
+                const result = parse('(' + str + ')').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid literal string value');
                 assert.strictEqual(result, str, 'String "' + result + '" should equal "' + str + '"');
             });
 
             it('should parse a literal string value with embedded parenthesis', function () {
-                var
-                    str = 'this test should (also) pass';
-
-                var result = parse('(' + str + ')').getString();
+                const str = 'this test should (also) pass';
+                const result = parse('(' + str + ')').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid literal string value');
                 assert.strictEqual(result, str, 'String "' + result + '" should equal "' + str + '"');
             });
 
             it('should parse a literal string value with escaped parenthesis', function () {
-                var
-                    str = 'this test should also\\) pass';
-
-                var result = parse('(' + str + ')').getString();
+                const str = 'this test should also\\) pass';
+                const result = parse('(' + str + ')').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid literal string value');
                 assert.strictEqual(result, str, 'String "' + result + '" should equal "' + str + '"');
             });
 
             it('should parse a literal string value with an embedded octal', function () {
-                var
-                    str = 'this test should p\\141ss';
-
-                var result = parse('(' + str + ')').getString();
+                const str = 'this test should p\\141ss';
+                const result = parse('(' + str + ')').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid literal string value');
                 assert.strictEqual(result, str, 'String "' + result + '" should equal "' + str + '"');
             });
 
             it('should parse a literal string value with an embedded escaped MacOS newline', function () {
-                var
-                    str = 'this test should\\\rpass';
-
-                var result = parse('(' + str + ')').getString();
+                const str = 'this test should\\\rpass';
+                const result = parse('(' + str + ')').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid literal string value');
                 assert.strictEqual(result, str, 'String "' + result + '" should equal "' + str + '"');
             });
 
             it('should parse a literal string value with an embedded escaped Windows newline', function () {
-                var
-                    str = 'this test should\\\r\npass';
-
-                var result = parse('(' + str + ')').getString();
+                const str = 'this test should\\\r\npass';
+                const result = parse('(' + str + ')').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid literal string value');
                 assert.strictEqual(result, str, 'String "' + result + '" should equal "' + str + '"');
             });
 
             it('should parse an hexadecimal string value', function () {
-                var
+                const
                     str = '012',
                     hex = '303132';
 
-                var result = parse('<' + hex + '>').getString();
+                const result = parse('<' + hex + '>').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid hexadecimal string value');
                 assert.strictEqual(result, str, 'String "' + result + '" should equal "' + str + '"');
             });
 
             it('should accept an empty hexadecimal string value', function () {
-                var result = parse('<>').getString();
+                const result = parse('<>').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid hexadecimal string value');
                 assert.strictEqual(result, '', 'String "' + result + '" should be empty');
             });
 
             it('should parse an hexadecimal string value with embedded white spaces', function () {
-                var
+                const
                     str = '012',
                     hex = '3 031 32';
 
-                var result = parse('<' + hex + '>').getString();
+                const result = parse('<' + hex + '>').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid hexadecimal string value');
                 assert.strictEqual(result, str, 'String "' + result + '" should equal "' + str + '"');
             });
 
             it('should parse an odd length hexadecimal string value', function () {
-                var
+                const
                     str = '0120',
                     hex = '3031323';
 
-                var result = parse('<' + hex + '>').getString();
+                const result = parse('<' + hex + '>').getString();
                 assert.strictEqual(typeof result, 'string', 'Invalid hexadecimal string value');
                 assert.strictEqual(result, str, 'String "' + result + '" should equal "' + str + '"');
             });
