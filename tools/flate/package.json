@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^0.5.1",
-    "diff": "^1.0.8"
+    "diff": "^4.0.1"
   }
 }
