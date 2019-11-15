@@ -4,9 +4,9 @@ PDF Hacker
 [![Build Status](https://img.shields.io/travis/luciopaiva/pdfhacker/master.svg?style=flat)](https://travis-ci.org/luciopaiva/pdfhacker)
 [![Coverage Status](https://img.shields.io/coveralls/luciopaiva/pdfhacker/master.svg?style=flat)](https://coveralls.io/r/luciopaiva/pdfhacker)
 
-**Warning: this is an experimental project and a WIP. Don't try to use it yet, it won't work!**
+**Beware this is a WIP in its early stages!**
 
-A low-level PDF file editor API.
+The goal of this project is to have a lib that allows you to programmatically read from (and possibly write to) PDF files. It is meant as a low-level PDF file editor API.
 
 ## Features
 
